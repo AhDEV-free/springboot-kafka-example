@@ -1,0 +1,22 @@
+server:
+  port: 12080
+# Spring配置
+spring:
+  # 边缘段kafka
+  kafka:
+    # 中台kafka kerberos 认证
+    kerberos_path: E:\xxxx\
+    two:
+      # 是否开启kerberos 认证 认证文件是放在${jarpath}/kerberos目录下的
+      security_enabled: true
+      bootstrap-servers: 10.220.31.101:6667
+      consumer:
+        # 禁用自动提交（按周期）已消费offset
+        enable-auto-commit: false
+        # earliest 从开始消费； latest 从最新消费
+        auto-offset-reset: latest
+        # 批量消费的单次最大消费记录数
+        max-poll-reocrds: 50
+        group-id: test-kafka
+        topic:
+          xxx: xxx
